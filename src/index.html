@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tambay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Rock+Salt&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        *       {padding: 0; margin: 0; font-family: "Public Sans"}
+
+        body    {background: white;}
+        header  {display: flex; justify-content: space-between; align-items: center; background-color: black;}
+        .logo   {height: 75px; width: 95px; margin-left: 20px;}
+        nav     {margin-right: 30px;}
+        .pages  {list-style: none; display: flex;}
+        .page   {padding: 20px; color: white; transition: font-size .3s ease, background-color .3s ease;}
+        .page:hover {background-color: rgb(60,60,60); font-size: 18px;}
+        a       {text-decoration: none; color: inherit;}
+
+        .banner {width: 85vh; height: 85vh;}
+        .container{display: flex; justify-content: center; }
+        .see_   {border-radius: 25px; font-size: 20px; border: none; padding: 15px; margin-top: -50px; box-shadow: 0px 0px 10px; cursor: pointer; transition: color .3s ease, background-color .3s ease;}
+        .see_:hover {color: rgb(220,220,200); background-color: black;}
+        .see_ a {text-decoration: none; color: inherit;}
+        .quote2 {font-size: 80px; color: rgb(40,40,40); font-family: "Pacifico", cursive;}
+        .quote1 {font-size: 40px; margin-top: 80px; color: rgb(40,40,40);}
+
+        .sale-container-{background-color: rgb(180,195,180); padding: 100px; margin-top: 80px; display: flex; gap: 20px;}
+        .sale-container{width: 300px; background-color: white; border-radius: 40px;}
+        .sale{padding: 8px; color: white; background-color: gray; display: inline-block; font-weight: 300;}
+        .sale-img{width: 300px;}
+        .sale-star{background-color: rgb(220,220,220); color: rgb(60,60,60); text-align: center; padding: 2px;}
+        .sale-name{background-color: rgb(220,220,220); text-align: center; padding-top: 30px; color: rgb(60,60,60); margin-top: 50px;}
+        .sale-price{background-color: rgb(220,220,220); text-align: center; padding: 3px 0 30px 0; color: rgb(60,100,60); }
+
+        .carousel-container{ position: relative; max-width: 500px; overflow: hidden; border-radius: 10px; margin-right: 100px;}
+        .carousel { display: flex; transition: transform 0.5s ease-in-out;}
+        .carousel-image { min-width: 100%; height: 400px; object-fit: cover;}
+        .prev, .next { position: absolute; top: 50%; transform: translateY(-50%); background-color: transparent; border: none; color: rgb(100,100,100); font-size: 40px; padding: 10px; cursor: pointer; z-index: 1;}
+        .prev { left: 0px;} .next {right: 0px;}
+
+        .limited{display: flex; padding: 100px;}
+        .limited-text{text-align: left;}
+        .limited-text > h2{font-size: 60px;}
+        .limited-text > p{font-size: 20px;}
+        .limited-text *{margin: 25px; color: rgb(30,30,30);}
+
+        .acknowl-container{background-color: rgb(30,30,30); padding: 70px; display: flex; gap: 100px; align-items: center; }
+        .acknowl-img{width: 30vw; height: auto; border-radius: 20px;}
+        .acknowl-text *{text-align: center; color: rgb(200,200,200); }
+        .acknowl-text p{font-family: "Poppins"; line-height: 29px; font-size: 23px;}
+        .acknowl-text h1{font-family: "Rock salt";}
+
+        .follow-container{margin-top: 80px;}
+        .follow-container h3{text-align: left;}
+        .site-container {display: flex; align-items: center; gap: 10px;}
+        .site-container a img:hover{fill: red;}
+
+        .fb-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #D0D0D0;
+            -webkit-mask-image: url('img/fb-icon.svg');
+            mask-image: url('img/fb-icon.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            transition: background-color 0.3s ease;
+        }
+        .fb-icon:hover {
+            background-color: rgb(180,240,180);
+        }
+
+        .ig-icon {
+            width: 56px;
+            height: 56px;
+            background-color: #D0D0D0;
+            -webkit-mask-image: url('img/ig-icon.svg');
+            mask-image: url('img/ig-icon.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            transition: background-color 0.3s ease;
+        }
+        .ig-icon:hover {
+            background-color: rgb(180,240,180);
+        }
+
+        .tt-icon {
+            width: 57px;
+            height: 57px;
+            background-color: #D0D0D0;
+            -webkit-mask-image: url('img/tt-icon.svg');
+            mask-image: url('img/tt-icon.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            transition: background-color 0.3s ease;
+        }
+
+        .tt-icon:hover {
+            background-color: rgb(180,240,180);
+        }
+
+        footer{padding: 30px; background-color: rgb(200,200,200);}
+        .footer-container{display: flex; justify-content: space-between; color: rgb(30,30,30);}
+        .footer-container h4:first-child {margin-left: 200px;}
+        .footer-container h4:last-child {margin-right: 200px;}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img class="logo" src="img/tambay_logo.png"></a>
+        <nav>
+            <ul class="pages">
+                <a href="index.html"><li class="page">HOME</li></a>
+                <a href="products.html"><li class="page">PRODUCTS</li></a>
+                <a href="about.html"><li class="page">ABOUT</li></a>
+                <a href="contact.html"><li class="page">CONTACT_US</li></a>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="home">
+        <div class="container">
+            <img class="banner" src="img/cap_front.jpg">
+        </div>
+        <div class="container see"> <button class="see_" ><a href="products.html">&#8594; see products</a></button></div>
+        <div class="container">
+            <h1 class="quote1">BE PROUD WHERE YOU FROM.</h1>
+        </div>
+        <div class="container">
+            <h1 class="quote2">WEAR YOUR TAMBAY CAP</h1>
+        </div>
+
+        <div class="container sale-container-">
+            <div class="sale-container">
+                <h3 class="sale">sale!</h3>
+                <img class="sale-img" src="img/cap-v2-hover.png">
+                <h3 class="sale-name">CAP v13</h3>
+                <h5 class="sale-star">&#9733;&#9733;&#9733;&#9733;&#9734;</h5>
+                <h5 class="sale-price">Php 1,600</h5>
+            </div>
+            <div class="sale-container">
+                <h3 class="sale">sale!</h3>
+                <img class="sale-img" src="img/cap-v3-hover.png">
+                <h3 class="sale-name">CAP v13</h3>
+                <h5 class="sale-star">&#9733;&#9733;&#9733;&#9733;&#9734;</h5>
+                <h5 class="sale-price">Php 1,600</h5>
+            </div>
+            <div class="sale-container">
+                <h3 class="sale">sale!</h3>
+                <img class="sale-img" src="img/cap-v6-hover.png">
+                <h3 class="sale-name">CAP v13</h3>
+                <h5 class="sale-star">&#9733;&#9733;&#9733;&#9733;&#9734;</h5>
+                <h5 class="sale-price">Php 1,600</h5>
+            </div>
+            <div class="sale-container">
+                <h3 class="sale">sale!</h3>
+                <img class="sale-img" src="img/cap-v8-hover.png">
+                <h3 class="sale-name">CAP v13</h3>
+                <h5 class="sale-star">&#9733;&#9733;&#9733;&#9733;&#9734;</h5>
+                <h5 class="sale-price">Php 1,600</h5>
+            </div>
+        </div>
+
+        <div class="container limited">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <img class="carousel-image" src="img/cap-v9-hover.png" alt="Image 1">
+                    <img class="carousel-image" src="img/cap-v12-hover.png" alt="Image 2">
+                    <img class="carousel-image" src="img/cap-v5-hover.png" alt="Image 3">
+                    <img class="carousel-image" src="img/cap-v14-hover.png" alt="Image 4">
+                    <img class="carousel-image" src="img/cap-v9-hover.png" alt="Image 1">
+                </div>
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="limited-text">
+                <h1>Limited Stock!</h1>
+                <h2>Collectables</h2>
+                <p>Edgy designs for the urban explorer.<br>Bold, statement caps to elevate your streetwear.</p>
+                <div class="see"> <button class="see_"><a href="products.html">&#8594; see products</a></button></div>
+            </div>
+        </div>
+
+        <div class="container acknowl-container">
+            <div class="acknowl-text">
+                <p>Hindi lahat ng Tambay ay<br>
+                    walang mararating!<br>
+                    Kapag sinabi nilang wala<br>
+                    kang mararating<br>
+                    mas lalo mong galingan<br>
+                    Pero hindi para patunayan<br>
+                    sa kanila, Gawin mo para<br>
+                    sa sarili mo at mahal mo sa<br>
+                    buhay
+                </p>
+                <h1>FROM TAMBAY TO RICHES</h1>
+                <div class="follow-container">
+                    <h3>FOLLOW US:</h3>
+                    <div class="site-container">
+                        <a href="https://www.facebook.com/tambaytoriches" target="_blank"><div class="fb-icon"></div></a>
+                        <a href="https://www.instagram.com/tambaycap?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><div class="ig-icon"></div></a>
+                        <a href="https://www.tiktok.com/@piobalbuenaofficial?is_from_webapp=1&sender_device=pc" target="_blank"><div class="tt-icon"></div></a>
+                    </div>
+                </div>
+            </div>
+            <img src="img/cap.png" class="acknowl-img">
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <h4>Copyright © 2024 Tambay Cap | Credits</h4>
+            <h4>Powered by Tambay Cap</h4>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const carousel = document.querySelector('.carousel');
+        const totalSlides = document.querySelectorAll('.carousel-image').length - 1; // Account for cloned slide
+
+        function showSlide(index) {
+            // Update the index
+            currentIndex = index;
+
+            // Move to the next slide
+            const offset = -currentIndex * 100; // move 100% of container width
+            carousel.style.transition = 'transform 0.5s ease-in-out';
+            carousel.style.transform = `translateX(${offset}%)`;
+
+            // Handle seamless looping effect
+            if (currentIndex === totalSlides) {
+                setTimeout(() => {
+                    // Jump to the original first image without animation
+                    carousel.style.transition = 'none';
+                    carousel.style.transform = `translateX(0%)`;
+                    currentIndex = 0;
+                }, 500); // Match the transition duration
+            }
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            // Jump back to last image if at first slide
+            if (currentIndex === 0) {
+                carousel.style.transition = 'none';
+                currentIndex = totalSlides - 1;
+                const offset = -currentIndex * 100;
+                carousel.style.transform = `translateX(${offset}%)`;
+            }
+            showSlide(currentIndex - 1);
+        }
+
+        // Auto-slide every 3 seconds
+        setInterval(() => {
+            nextSlide();
+        }, 3000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tambay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Rock+Salt&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <style>
+        *       {padding: 0; margin: 0; font-family: "Public Sans"; box-sizing: border-box; color: rgb(60,60,60);}
+
+        body    {background: white;}
+        header  {display: flex; justify-content: space-between; align-items: center; background-color: black;}
+        .logo   {height: 75px; width: 95px; margin-left: 20px;}
+        nav     {margin-right: 30px;}
+        .pages  {list-style: none; display: flex;}
+        .page   {padding: 20px; color: white; transition: font-size .3s ease, background-color .3s ease;}
+        .page:hover {background-color: rgb(60,60,60); font-size: 18px;}
+        a       {text-decoration: none; color: inherit; width: 100%; height: 100%;}
+
+       .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Defines 4 equal columns */
+            grid-template-rows: auto auto; /* Defines 2 equal rows of 200px height */
+            gap:20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            width: 70vw;
+            margin: 100px auto;
+        }
+
+       .products-container > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0 50px 0;
+            font-size: 30px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+
+       }
+
+
+       .img-container{
+            display: flex;
+            height: 230px;
+            justify-content: center;
+            align-items: center;
+
+       }
+
+       .img-container img {
+            display: block; /* Ensure the image behaves as a block-level element */
+            width:80%; /* Adjust width as needed */
+            margin: auto auto; /* Center the image */
+            transition: width .3s ease;
+            transition-origin: center center;
+
+       }
+       .img-container img:hover {
+            width: 90%;
+        }
+
+       .item h3 {
+            margin-top: 10px; /* Add space between the image and the heading */
+            font-size: 18px; /* Adjust the font size of the heading */
+       }
+
+               /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .modal-content img {
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+        .modal-content h3 {
+            margin-bottom: 10px;
+        }
+        .modal-content .quantity {
+            margin: 20px 0;
+        }
+        .modal-content button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color .3s ease;
+        }
+        .modal-content button:hover {
+            background-color: gray;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            color: white;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer{padding: 30px; background-color: rgb(200,200,200);}
+        .footer-container{display: flex; justify-content: space-between; color: rgb(30,30,30);}
+        .footer-container h4:first-child {margin-left: 200px;}
+        .footer-container h4:last-child {margin-right: 200px;}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img class="logo" src="img/tambay_logo.png"></a>
+        <nav>
+            <ul class="pages">
+                <a href="index.html"><li class="page">HOME</li></a>
+                <a href="products.html"><li class="page">PRODUCTS</li></a>
+                <a href="about.html"><li class="page">ABOUT</li></a>
+                <a href="contact.html"><li class="page">CONTACT_US</li></a>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="products-container">
+        <div class="item" data-name="Tambay Cap Dad Hat" data-price="1600" data-image="img/cap-dadhat.png">
+            <div class="img-container">
+                <img  src="img/cap-dadhat.png">
+            </div>
+            <h3>Tambay Cap Dad Hat</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+         <div class="item" data-name="Tambay Cap Trucker" data-price="1600" data-image="img/cap-trucker-black.png">
+            <div class="img-container">
+                <img  src="img/cap-trucker-black.png">
+            </div>
+            <h3>Tambay Cap Trucker</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap Trucker Colored" data-price="1600" data-image="img/cap-trucker-colored.png">
+            <div class="img-container">
+                <img  src="img/cap-trucker-colored.png">
+            </div>
+            <h3>Tambay Cap Trucker Colored</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V2" data-price="1600" data-image="img/cap-v2-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v2-hover.png">
+            </div>
+            <h3>Tambay Cap V2</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V3" data-price="1600" data-image="img/cap-v3-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v3-hover.png">
+            </div>
+            <h3>Tambay Cap V3</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V4" data-price="1600" data-image="img/cap-v4-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v4-hover.png">
+            </div>
+            <h3>Tambay Cap V4</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V5" data-price="1600" data-image="img/cap-v5-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v5-hover.png">
+            </div>
+            <h3>Tambay Cap V5</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V6" data-price="1600" data-image="img/cap-v6-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v6-hover.png">
+            </div>
+            <h3>Tambay Cap V6</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V7" data-price="1600" data-image="img/cap-v7-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v7-hover.png">
+            </div>
+            <h3>Tambay Cap V7</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V8" data-price="1600" data-image="img/cap-v8-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v8-hover.png">
+            </div>
+            <h3>Tambay Cap V8</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V9" data-price="1600" data-image="img/cap-v9-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v9-hover.png">
+            </div>
+            <h3>Tambay Cap V9</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V11" data-price="1600" data-image="img/cap-v11-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v11-hover.png">
+            </div>
+            <h3>Tambay Cap V11</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V12" data-price="1600" data-image="img/cap-v12-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v12-hover.png">
+            </div>
+            <h3>Tambay Cap V12</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V13" data-price="1600" data-image="img/cap-v13-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v13-hover.png">
+            </div>
+            <h3>Tambay Cap V13</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V14" data-price="1600" data-image="img/cap-v14-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v14-hover.png">
+            </div>
+            <h3>Tambay Cap V14</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V15" data-price="1600" data-image="img/cap-v15-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v15-hover.png">
+            </div>
+            <h3>Tambay Cap V15</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+        <div class="item" data-name="Tambay Cap V16" data-price="1600" data-image="img/cap-v16-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v16-hover.png">
+            </div>
+            <h3>Tambay Cap V16</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+       <div class="item" data-name="Tambay Cap V18" data-price="1600" data-image="img/cap-v18-hover.png">
+            <div class="img-container">
+                <img  src="img/cap-v18-hover.jpg">
+            </div>
+            <h3>Tambay Cap V18</h3>
+            <h3>&#9733;&#9733;&#9733;&#9733;&#9734;</h3>
+            <h3>Php 1,600</h3>
+        </div>
+
+    </div>
+
+    <div class="modal" id="buyModal">
+        <button class="close" onclick="closeModal()">&times;</button>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Product Image">
+            <h3 id="modalName">Product Name</h3>
+            <h3 id="modalPrice">Php 0</h3>
+            <div class="quantity">
+                <label for="quantity">Quantity: </label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+            </div>
+            <button onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <h4>Copyright © 2024 Tambay Cap | Credits</h4>
+            <h4>Powered by Tambay Cap</h4>
+        </div>
+    </footer>
+
+    <script>
+        const modal = document.getElementById('buyModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalName = document.getElementById('modalName');
+        const modalPrice = document.getElementById('modalPrice');
+
+        document.querySelectorAll('.item').forEach(item => {
+            item.addEventListener('click', () => {
+                const name = item.getAttribute('data-name');
+                const price = item.getAttribute('data-price');
+                const image = item.getAttribute('data-image');
+
+                modalName.textContent = name;
+                modalPrice.textContent = `Php ${price}`;
+                modalImage.src = image;
+
+                modal.style.display = 'flex';
+            });
+        });
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        function buyNow() {
+            closeModal();
+
+
+            setTimeout(function() {
+            const quantity = document.getElementById('quantity').value;
+            alert(`You have purchased ${quantity} item(s)!`);
+            }, 100);
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+    </script>
+</body>
+</html>
